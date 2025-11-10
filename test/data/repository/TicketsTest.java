@@ -41,7 +41,7 @@ class TicketsTest {
     public void test_ticket_add_ticket_and_deleteId() {
         Ticket savedTicket = new Ticket();
         Ticket result = ticket.save(savedTicket);
-        ticket.delete(savedTicket);
+        ticket.deleteById(savedTicket.getId());
         assertEquals(1, ticket.count());
     }
 
