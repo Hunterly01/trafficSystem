@@ -8,6 +8,7 @@ public class Ticket {
     private Offence offence;
     private boolean hasPaid;
     private Officer issuer;
+    private LocalDateTime date = LocalDateTime.now();
 
     public LocalDateTime getDate() {
         return date;
@@ -57,5 +58,5 @@ public class Ticket {
         this.id = id;
     }
 
-    private LocalDateTime date = LocalDateTime.now();
+
 }

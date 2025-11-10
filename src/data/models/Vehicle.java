@@ -1,4 +1,5 @@
 package data.models;
+import java.time.Year;
 import java.util.List;
 public class Vehicle {
 
@@ -7,6 +8,26 @@ public class Vehicle {
     private String name;
     private String color;
     private Owner owner;
+    private Year year;
+
+    public Year getYear() {
+        return year;
+    }
+
+    public void setYear(Year year) {
+        this.year = year;
+    }
+
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
+
+    private String plateNumber;
+    private List <Ticket>  tickets;
 
     public List<Ticket> getTickets() {
         return tickets;
@@ -48,7 +69,7 @@ public class Vehicle {
         this.owner = owner;
     }
 
-    private List <Ticket>  tickets;
+
 
 
 

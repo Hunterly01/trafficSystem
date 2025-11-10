@@ -1,6 +1,7 @@
 package data.repository;
 
 import data.models.Ticket;
+import exceptions.IdNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,12 @@ public class Tickets implements TicketRepository {
 
     @Override
     public Ticket findById(int id) {
-        return null;
+        for (Ticket ticket : tickets) {
+            if (ticket.getId() == id) {
+                return ticket;
+            }
+        }
+        throw new IdNotFoundException("ticket with id " + id + " not found");
     }
 
     @Override
