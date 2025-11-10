@@ -13,9 +13,16 @@ public class Officers implements OfficerRepository {
 
     @Override
     public Officer save(Officer officer) {
-        officers.add(officer);
-        count++;
+        if (officer.getId() == 0) {
+            generateId();
+            officer.setId(count);
+            officers.add(officer);
+        }
         return officer;
+    }
+
+    private void generateId() {
+        count++;
     }
 
     @Override
@@ -37,7 +44,7 @@ public class Officers implements OfficerRepository {
     @Override
     public void deleteById(int id) {
         officers.removeIf(officer -> officer.getId() == id);
-        }
+    }
 
 
     @Override
@@ -54,6 +61,8 @@ public class Officers implements OfficerRepository {
 
     @Override
     public long count() {
-        return count;
+        return officers.size();
     }
 }
+
+

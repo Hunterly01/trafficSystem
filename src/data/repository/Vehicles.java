@@ -13,8 +13,11 @@ public class Vehicles implements VehicleRepository {
 
     @Override
     public Vehicle save(Vehicle vehicle) {
-        vehicles.add(vehicle);
-        count++;
+        if (vehicle.getId() == 0) {
+            generateId();
+            vehicle.setId(count);
+            vehicles.add(vehicle);
+        }
         return vehicle;
 
     }
@@ -56,7 +59,16 @@ public class Vehicles implements VehicleRepository {
 
     @Override
     public long count() {
-        return count;
+        return vehicles.size();
 
     }
+    public void generateId() {
+       ++count;
+        }
+
+    @Override
+    public String toString() {
+        return "vehicles =" + vehicles;
+    }
 }
+

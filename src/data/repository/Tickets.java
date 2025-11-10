@@ -12,9 +12,16 @@ public class Tickets implements TicketRepository {
 
     @Override
     public Ticket save(Ticket ticket) {
-        tickets.add(ticket);
-        count++;
+        if (ticket.getId() == 0) {
+            generateId();
+            ticket.setId(count);
+            tickets.add(ticket);
+        }
         return ticket;
+    }
+
+    private void generateId() {
+        ++count;
     }
 
     @Override
@@ -52,8 +59,12 @@ public class Tickets implements TicketRepository {
 
     @Override
     public long count() {
-        return count;
+        return tickets.size();
     }
 
 
+    @Override
+    public String toString() {
+        return "Tickets ="  + tickets;
+    }
 }
