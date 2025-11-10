@@ -56,7 +56,7 @@ public class vehiclesTest {
     }
 
     @Test
-    public void test_a_add_two_vehicle_and_delete() {
+    public void test_a_add_two_vehicle_and_deleteAll() {
         Vehicle vehicle1 = new Vehicle();
         Vehicle vehicle2 = new Vehicle();
         vehicle.save(vehicle1);

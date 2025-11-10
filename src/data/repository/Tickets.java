@@ -29,21 +29,24 @@ public class Tickets implements TicketRepository {
 
     @Override
     public List<Ticket> findAll() {
-        return List.of();
+        return tickets;
     }
 
     @Override
     public void deleteById(int id) {
+        tickets.removeIf(ticket -> ticket.getId() == id);
 
     }
 
     @Override
     public void deleteAll() {
+        tickets.clear();
 
     }
 
     @Override
     public void delete(Ticket ticket) {
+        tickets.remove(ticket);
 
     }
 
