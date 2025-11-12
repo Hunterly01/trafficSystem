@@ -9,6 +9,27 @@ public class Vehicle {
     private String color;
     private Owner owner;
     private Year year;
+    private String chasisNumber;
+
+    public String getChasisNumber() {
+        return chasisNumber;
+    }
+
+    public void setChasisNumber(String chasisNumber) {
+        this.chasisNumber = chasisNumber;
+    }
+
+
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    private String model;
 
     public Year getYear() {
         return year;

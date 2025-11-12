@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Vehicles implements VehicleRepository {
-    private List<Vehicle> vehicles = new ArrayList<>();
+    private static List<Vehicle> vehicles = new ArrayList<>();
     private int count = 0;
 
 
@@ -62,13 +62,19 @@ public class Vehicles implements VehicleRepository {
         return vehicles.size();
 
     }
+
+    @Override
+    public Vehicle findByChassiNumber(String chassiNumber) {
+        for (Vehicle vehicle : vehicles) {
+            if(vehicle.getChasisNumber().equals(chassiNumber)) return vehicle;
+        }
+        return null;
+    }
+
     public void generateId() {
        ++count;
         }
 
-    @Override
-    public String toString() {
-        return "vehicles =" + vehicles;
-    }
+
 }
 

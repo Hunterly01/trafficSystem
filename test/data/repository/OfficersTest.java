@@ -1,7 +1,6 @@
 package data.repository;
 
 import data.models.Officer;
-import data.models.Ticket;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
