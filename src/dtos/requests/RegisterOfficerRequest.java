@@ -16,7 +16,6 @@ public class RegisterOfficerRequest {
     }
 
 
-
     public String getOffNumber() {
         return offNumber;
     }
