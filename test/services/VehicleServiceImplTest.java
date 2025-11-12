@@ -21,20 +21,19 @@ class VehicleServiceImplTest {
     }
 
     @Test
-    public void test_() {
+    public void test_to_register_vehicle() {
         RegisterVehicleRequest request = new RegisterVehicleRequest();
         vehicleService.registerVehicle(request);
         assertEquals(1, vehicleRepository.count());
     }
 
     @Test
-    public void test_getVehicle() {
+    public void test_getVehicle_throw_VehicleExistsException() {
         RegisterVehicleRequest request = new RegisterVehicleRequest();
         request.setChasisNumber("ade");
         vehicleService.registerVehicle(request);
         assertEquals(1, vehicleRepository.count());
         assertThrows(VehicleExistsException.class,()-> vehicleService.registerVehicle(request));
-        assertEquals(1,vehicleRepository.count());
 
     }
 

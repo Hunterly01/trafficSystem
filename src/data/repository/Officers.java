@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Officers implements OfficerRepository {
-    private List<Officer> officers = new ArrayList<>();
+    private static List<Officer> officers = new ArrayList<>();
     private int count = 0;
 
 
@@ -62,6 +62,15 @@ public class Officers implements OfficerRepository {
     @Override
     public long count() {
         return officers.size();
+    }
+
+    @Override
+    public Officer findByOffNumber(String offNumber) {
+        for (Officer officer : officers) {
+            if (officer.getOffNumber().equals(offNumber)) return officer;
+
+        }
+        return null;
     }
 }
 

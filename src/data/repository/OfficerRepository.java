@@ -13,6 +13,7 @@ public interface OfficerRepository {
     void delete(Officer officer);
     void deleteAll();
     long count();
+    Officer findByOffNumber(String offNumber);
 
 
 }
