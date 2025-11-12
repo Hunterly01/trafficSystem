@@ -40,7 +40,12 @@ public class Vehicles implements VehicleRepository {
 
     @Override
     public void deleteById(int id) {
-        vehicles.removeIf(vehicle -> vehicle.getId() == id);
+        for (Vehicle vehicle : vehicles) {
+            if(vehicle.getId() == id){
+                vehicles.remove(vehicle);
+                break;
+            }
+        }
 
     }
 

@@ -43,7 +43,12 @@ public class Officers implements OfficerRepository {
 
     @Override
     public void deleteById(int id) {
-        officers.removeIf(officer -> officer.getId() == id);
+        for (Officer officer : officers) {
+            if (officer.getId() == id) {
+                officers.remove(officer);
+                break;
+            }
+        }
     }
 
 

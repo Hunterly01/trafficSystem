@@ -1,6 +1,7 @@
 package data.repository;
 
 import data.models.Officer;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -96,6 +97,10 @@ class OfficersTest {
         assertEquals(2, officer.count());
         officer.deleteAll();
         assertEquals(0, officer.count());
+    }
+    @AfterEach
+    void tearDown() {
+        officer.deleteAll();
     }
 
 

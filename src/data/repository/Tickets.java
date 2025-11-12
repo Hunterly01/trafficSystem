@@ -41,7 +41,12 @@ public class Tickets implements TicketRepository {
 
     @Override
     public void deleteById(int id) {
-        tickets.removeIf(ticket -> ticket.getId() == id);
+        for (Ticket ticket : tickets) {
+            if (ticket.getId() == id) {
+                tickets.remove(ticket);
+                break;
+            }
+        }
 
     }
 
