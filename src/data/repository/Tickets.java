@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tickets implements TicketRepository {
-    private List<Ticket> tickets = new ArrayList<>();
+    private static List<Ticket> tickets = new ArrayList<>();
     private int count = 0;
 
     @Override

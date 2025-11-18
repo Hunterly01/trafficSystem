@@ -26,7 +26,7 @@ public class Ticket {
         this.issuer = issuer;
     }
 
-    public boolean isHasPaid() {
+    public boolean getHasPaid() {
         return hasPaid;
     }
 
