@@ -1,6 +1,7 @@
 package data.repository;
 
 import data.models.Ticket;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -96,6 +97,10 @@ class TicketsTest {
         ticket.delete(savedTicket1);
         ticket.delete(savedTicket2);
         assertEquals(0, ticket.count());
+    }
+    @AfterEach
+    public void tearDown() {
+        ticket.deleteAll();
     }
 }
 
