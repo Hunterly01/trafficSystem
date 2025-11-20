@@ -1,11 +1,9 @@
-package dtos.responses;
+package dtos.requests;
 
 import lombok.Data;
-import lombok.ToString;
 
 @Data
-@ToString
-public class IssueTicketResponse {
+public class ViewTicketsRequest {
     private String  offense;
     private String officerOfNumber;
     private int vehicleId;

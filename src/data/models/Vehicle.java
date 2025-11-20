@@ -1,95 +1,27 @@
 package data.models;
+import lombok.Data;
+import lombok.ToString;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
+
+@Data
+@Document(collection = "Vehicles")
 public class Vehicle {
 
-
+    @Id
     private int id;
     private String name;
     private String color;
     private Owner owner;
     private Year year;
     private String chasisNumber;
-
-    public String getChasisNumber() {
-        return chasisNumber;
-    }
-
-    public void setChasisNumber(String chasisNumber) {
-        this.chasisNumber = chasisNumber;
-    }
-
-
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    private String model;
-
-    public Year getYear() {
-        return year;
-    }
-
-    public void setYear(Year year) {
-        this.year = year;
-    }
-
-    public String getPlateNumber() {
-        return plateNumber;
-    }
-
-    public void setPlateNumber(String plateNumber) {
-        this.plateNumber = plateNumber;
-    }
-
-    private String plateNumber;
+    private String offense;
     private List <Ticket>  tickets = new ArrayList<>();
-
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
+    private String model;
 
 
 }

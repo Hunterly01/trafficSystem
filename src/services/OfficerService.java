@@ -1,8 +1,9 @@
 package services;
 
 import dtos.requests.RegisterOfficerRequest;
-import dtos.responses.RegisterVehicleResponse;
+import dtos.responses.RegisteOfficerResponse;
+
 
 public interface OfficerService {
-    RegisterVehicleResponse registerOfficer(RegisterOfficerRequest registerOfficerRequest);
+    RegisteOfficerResponse registerOfficer(RegisterOfficerRequest registerOfficerRequest);
 }

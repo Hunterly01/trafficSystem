@@ -1,62 +1,22 @@
 package data.models;
 
+import lombok.Data;
+import lombok.ToString;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 
+@Data
+@Document(collection = "Tickets")
 public class Ticket {
+    @Id
     private int id;
     private Vehicle vehicle;
     private Offence offence;
     private boolean hasPaid;
     private Officer issuer;
     private LocalDateTime date = LocalDateTime.now();
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
-    public Officer getIssuer() {
-        return issuer;
-    }
-
-    public void setIssuer(Officer issuer) {
-        this.issuer = issuer;
-    }
-
-    public boolean getHasPaid() {
-        return hasPaid;
-    }
-
-    public void setHasPaid(boolean hasPaid) {
-        this.hasPaid = hasPaid;
-    }
-
-    public Offence getOffence() {
-        return offence;
-    }
-
-    public void setOffence(Offence offence) {
-        this.offence = offence;
-    }
-
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    private int amount;
 
 }
