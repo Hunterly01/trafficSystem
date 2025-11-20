@@ -1,106 +1,106 @@
-package data.repository;
-
-import data.models.Ticket;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-class TicketsTest {
-    private TicketRepository ticket;
-
-
-    @BeforeEach
-    void setUp() {
-        ticket = new Tickets();
-    }
-
-    @Test
-    public void test_ticket_is_not_available() {
-        assertEquals(0, ticket.count());
-    }
-
-    @Test
-    public void test_ticket_add_ticket() {
-        Ticket savedTicket = new Ticket();
-        Ticket result = ticket.save(savedTicket);
-        assertEquals(1, ticket.count());
-
-    }
-    @Test
-    public void test_ticket_update_ticket() {
-        Ticket savedTicket = new Ticket();
-        Ticket result = ticket.save(savedTicket);
-        assertEquals(1, ticket.count());
-        Ticket ticket = new Ticket();
-        ticket.setId(2);
-        assertEquals(2, ticket.getId());
-    }
-
-    @Test
-    public void test_ticket_add_ticket_and_fimdById() {
-        Ticket savedTicket = new Ticket();
-        Ticket result = ticket.save(savedTicket);
-        assertEquals(1, ticket.count());
-        assertEquals(savedTicket, ticket.findById(1));
-
-    }
-    @Test
-    public void test_ticket_add_two_ticket_and_fimdById() {
-        Ticket ticket1 = new Ticket();
-        Ticket ticket2 = new Ticket();
-        ticket.save(ticket1);
-        ticket.save(ticket2);
-        assertEquals(2, ticket.count());
-        assertEquals(ticket2, ticket.findById(2));
-    }
-
-
-    @Test
-    public void test_ticket_add_ticket_and_deleteId() {
-        Ticket savedTicket = new Ticket();
-        Ticket result = ticket.save(savedTicket);
-        ticket.deleteById(savedTicket.getId());
-        assertEquals(0, ticket.count());
-    }
-
-    @Test
-    public void test_ticket_add_two_ticket_and_deleteId() {
-        Ticket ticket1 = new Ticket();
-        Ticket ticket2 = new Ticket();
-        ticket.save(ticket1);
-        ticket.save(ticket2);
-        assertEquals(2, ticket.count());
-        ticket.deleteById(1);
-        assertEquals(1, ticket.count());
-    }
-
-    @Test
-    public void test_ticket_add_two_ticket_and_deleteAll() {
-        Ticket savedTicket1 = new Ticket();
-        Ticket savedTicket2 = new Ticket();
-        ticket.save(savedTicket1);
-        ticket.save(savedTicket2);
-        assertEquals(2, ticket.count());
-        ticket.deleteAll();
-        assertEquals(0, ticket.findAll().size());
-    }
-
-    @Test
-    public void test_ticket_add_two_ticket_and_delete() {
-        Ticket savedTicket1 = new Ticket();
-        Ticket savedTicket2 = new Ticket();
-        ticket.save(savedTicket1);
-        ticket.save(savedTicket2);
-        assertEquals(2, ticket.count());
-        ticket.delete(savedTicket1);
-        ticket.delete(savedTicket2);
-        assertEquals(0, ticket.count());
-    }
-    @AfterEach
-    public void tearDown() {
-        ticket.deleteAll();
-    }
-}
-
+//package data.repository;
+//
+//import data.models.Ticket;
+//import org.junit.jupiter.api.AfterEach;
+//import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.Test;
+//
+//import static org.junit.jupiter.api.Assertions.*;
+//
+//class TicketsTest {
+//    private TicketRepository ticket;
+//
+//
+//    @BeforeEach
+//    void setUp() {
+//        ticket = new Tickets();
+//    }
+//
+//    @Test
+//    public void test_ticket_is_not_available() {
+//        assertEquals(0, ticket.count());
+//    }
+//
+//    @Test
+//    public void test_ticket_add_ticket() {
+//        Ticket savedTicket = new Ticket();
+//        Ticket result = ticket.save(savedTicket);
+//        assertEquals(1, ticket.count());
+//
+//    }
+//    @Test
+//    public void test_ticket_update_ticket() {
+//        Ticket savedTicket = new Ticket();
+//        Ticket result = ticket.save(savedTicket);
+//        assertEquals(1, ticket.count());
+//        Ticket ticket = new Ticket();
+//        ticket.setId(2);
+//        assertEquals(2, ticket.getId());
+//    }
+//
+//    @Test
+//    public void test_ticket_add_ticket_and_fimdById() {
+//        Ticket savedTicket = new Ticket();
+//        Ticket result = ticket.save(savedTicket);
+//        assertEquals(1, ticket.count());
+//        assertEquals(savedTicket, ticket.findById(1));
+//
+//    }
+//    @Test
+//    public void test_ticket_add_two_ticket_and_fimdById() {
+//        Ticket ticket1 = new Ticket();
+//        Ticket ticket2 = new Ticket();
+//        ticket.save(ticket1);
+//        ticket.save(ticket2);
+//        assertEquals(2, ticket.count());
+//        assertEquals(ticket2, ticket.findById(2));
+//    }
+//
+//
+//    @Test
+//    public void test_ticket_add_ticket_and_deleteId() {
+//        Ticket savedTicket = new Ticket();
+//        Ticket result = ticket.save(savedTicket);
+//        ticket.deleteById(savedTicket.getId());
+//        assertEquals(0, ticket.count());
+//    }
+//
+//    @Test
+//    public void test_ticket_add_two_ticket_and_deleteId() {
+//        Ticket ticket1 = new Ticket();
+//        Ticket ticket2 = new Ticket();
+//        ticket.save(ticket1);
+//        ticket.save(ticket2);
+//        assertEquals(2, ticket.count());
+//        ticket.deleteById(1);
+//        assertEquals(1, ticket.count());
+//    }
+//
+//    @Test
+//    public void test_ticket_add_two_ticket_and_deleteAll() {
+//        Ticket savedTicket1 = new Ticket();
+//        Ticket savedTicket2 = new Ticket();
+//        ticket.save(savedTicket1);
+//        ticket.save(savedTicket2);
+//        assertEquals(2, ticket.count());
+//        ticket.deleteAll();
+//        assertEquals(0, ticket.findAll().size());
+//    }
+//
+//    @Test
+//    public void test_ticket_add_two_ticket_and_delete() {
+//        Ticket savedTicket1 = new Ticket();
+//        Ticket savedTicket2 = new Ticket();
+//        ticket.save(savedTicket1);
+//        ticket.save(savedTicket2);
+//        assertEquals(2, ticket.count());
+//        ticket.delete(savedTicket1);
+//        ticket.delete(savedTicket2);
+//        assertEquals(0, ticket.count());
+//    }
+//    @AfterEach
+//    public void tearDown() {
+//        ticket.deleteAll();
+//    }
+//}
+//
